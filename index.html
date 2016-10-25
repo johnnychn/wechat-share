@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head lang="zh-cn">
+    <meta charset="UTF-8">
+    <title>腾讯视频</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content=" initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <meta name="format-detection" content="telephone=no">
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+    <script src="./js/smart.min.js"></script>
+    <script src="./dist/wechat-share.js"></script>
+</head>
+<body>
+
+<script>
+    var data ={
+        appId: "wx4c7e8a508db83771",
+        timestamp: 1477050865,
+        nonceStr: "IrrzmhMM5TK5Tf63",
+        signature: "b3dc6788e2a83f3e7e32135cefb7c666042f59fd",
+        state: true,
+        msg: "鎺堟潈鎴愬姛",
+        url: "http://app.goddreamer.com/2016/wechat-share/"
+    }
+
+
+    var share = new WechatShare(data);
+    //=========微信分享 高级设置=========
+
+    // 脚本方式设置分享内容
+    // 重新设置分享相关内容，包括高级接口
+
+    //重新设置发送给好友的标题
+
+    share.set('appmessage', 'title', "使用 set 函数重新设置标题");
+
+    share.set('timeline', 'success', function () {
+        alert("朋友圈分享成功")
+    });
+
+    share.set('timeline', 'cancel', function () {
+        alert("取消分享到朋友圈")
+    });
+
+    share.set('appmessage', 'success', function () {
+        alert("分享给好友成功")
+    });
+
+    share.set('appmessage', 'cancel', function () {
+        alert("取消分享给好友")
+    });
+    share.update();
+
+
+
+    //还有其它的参数分别为
+
+    // timeline title
+    // timeline img_url
+    // timeline link
+    // timeline success
+    // timeline cancel
+
+    // appmessage title
+    // appmessage desc
+    // appmessage img_url
+    // appmessage link
+    // appmessage success
+    // appmessage cancel
+
+</script>
+</body>
+</html>
