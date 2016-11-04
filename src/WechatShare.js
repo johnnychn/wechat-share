@@ -66,6 +66,16 @@ var defaults = {
 
 };
 
+WechatShare.prototype.jsonUrl=function (SDKURL,shareURL) {
+    if(!SDKURL){
+        SDKURL='http://api.visionape.cn/wechat/?';
+    }
+    if(!shareURL){
+        shareURL=encodeURIComponent(location.href.replace(/[\#][\s\S]*/, ''));
+    }
+    return SDKURL + 'url=' +shareURL;
+}
+
 
 WechatShare.prototype.setConfig = function (wx_data) {
     var self = this;
