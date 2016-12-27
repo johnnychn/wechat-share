@@ -6,14 +6,14 @@ var Utils = Smart.Utils;
  */
 
 function WechatShare(config) {
-    this.config=defaults;
+    this.config = defaults;
     this.init(config);
 }
 
 
 //默认参数
 var defaults = {
-    sdk: 'http://api.visionape.cn/wechat/?', //授权链接
+    sdk: '/wechat/?', //授权链接
     type: 'SDK',// SDK 或者 TXGAME
     jsApiList: [
         'checkJsApi',
@@ -66,30 +66,30 @@ var defaults = {
 
 };
 
-WechatShare.prototype.jsonUrl=function (SDKURL,shareURL) {
-    if(!SDKURL){
-        SDKURL='http://api.visionape.cn/wechat/?';
+WechatShare.prototype.jsonUrl = function (SDKURL, shareURL) {
+    if (!SDKURL) {
+        SDKURL = '/wechat/?';
     }
-    if(!shareURL){
-        shareURL=encodeURIComponent(location.href.replace(/[\#][\s\S]*/, ''));
+    if (!shareURL) {
+        shareURL = encodeURIComponent(location.href.replace(/[\#][\s\S]*/, ''));
     }
-    return SDKURL + 'url=' +shareURL;
+    return SDKURL + 'url=' + shareURL;
 }
 
 
 WechatShare.prototype.setConfig = function (wx_data) {
     var self = this;
-        try {
-            wx.config({
-                appId: wx_data.appId,
-                timestamp: wx_data.timestamp,
-                nonceStr: wx_data.nonceStr,
-                signature: wx_data.signature,
-                jsApiList: self.config.jsApiList
-            });
-        } catch (e) {
+    try {
+        window.wx.config({
+            appId: wx_data.appId,
+            timestamp: wx_data.timestamp,
+            nonceStr: wx_data.nonceStr,
+            signature: wx_data.signature,
+            jsApiList: self.config.jsApiList
+        });
+    } catch (e) {
 
-        }
+    }
 };
 
 
@@ -97,8 +97,8 @@ WechatShare.prototype.update = function () {
     try {
         var self = this;
 
-        wx.ready(function () {
-            wx.onMenuShareAppMessage({
+        window.wx.ready(function () {
+            window.wx.onMenuShareAppMessage({
                 title: self.config.shareData.appmessage.title,
                 desc: self.config.shareData.appmessage.desc,
                 link: self.config.shareData.appmessage.link,
@@ -109,7 +109,7 @@ WechatShare.prototype.update = function () {
                 }, fail: self.config.shareData.appmessage.fail || function () {
                 }
             });
-            wx.onMenuShareTimeline({
+            window.wx.onMenuShareTimeline({
                 title: self.config.shareData.timeline.title,
                 link: self.config.shareData.timeline.link,
                 imgUrl: self.config.shareData.timeline.img_url,
@@ -125,11 +125,21 @@ WechatShare.prototype.update = function () {
     } catch (e) {
     }
 };
-
+WechatShare.prototype.sdkReady = function (callback) {
+    if (!window.wx) {
+        Smart.Utils.getScript('http://res.wx.qq.com/open/js/jweixin-1.0.0.js', function () {
+            callback(window.wx)
+        })
+    } else {
+        callback(window.wx);
+    }
+};
 
 WechatShare.prototype.init = function (config) {
     var self = this;
-    self.setConfig(config)
+    self.sdkReady(function () {
+        self.setConfig(config)
+    })
 };
 
 WechatShare.prototype.set = function () {
@@ -143,4 +153,4 @@ WechatShare.prototype.set = function () {
 };
 
 
-module.exports=WechatShare;
+module.exports = WechatShare;
