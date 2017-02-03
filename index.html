@@ -13,6 +13,7 @@
     <script src="./dist/wechat-share.js"></script>
 </head>
 <body id="app">
+声音播放:{{playing}}
 
 <script>
     var data ={
@@ -70,6 +71,11 @@
 
 
 
+
+    var music = new Smart.Sound({path: 'sound/bg.mp3', loop: false});
+
+
+
     //还有其它的参数分别为
 
     // timeline title
@@ -89,22 +95,25 @@
 
     new Vue({
         el: "#app",
+        data:{playing:false},
         ready: function () {
+            var me=this;
             //jsonp
             this.$http.jsonp(share.jsonUrl('http://h5.2smart.cn/wechat/js/?'),{url:encodeURIComponent(location.href.replace(/[\#][\s\S]*/, '')) }).then(function (response) {
                var json= response.json()
                 console.log('jsonp:',json);
-
                 share.init(json);
                 share.set('appmessage', 'title', "再次jsonP 设置");
                 share.set('timeline', 'title', "再次jsonP 设置");
                 share.update();
-
-
-
             }, function (response) {
                 console.log('error', response.status);
             });
+
+            share.playSound(music,function (playing) {
+              me.playing=playing
+            });
+
         }
     })
 

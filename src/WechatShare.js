@@ -1,5 +1,6 @@
 var _ = Smart._;
 var Utils = Smart.Utils;
+var Device = Smart.Device;
 
 /**
  * 微信分享
@@ -7,7 +8,7 @@ var Utils = Smart.Utils;
 
 function WechatShare(config) {
     this.config = defaults;
-    this.init(config);
+    this.init(config|{});
 }
 
 
@@ -138,7 +139,8 @@ WechatShare.prototype.sdkReady = function (callback) {
 WechatShare.prototype.init = function (config) {
     var self = this;
     self.sdkReady(function () {
-        self.setConfig(config)
+        self.setConfig(config);
+        self.update();
     })
 };
 
@@ -149,7 +151,28 @@ WechatShare.prototype.set = function () {
     } else {
         console.log('[WechatShare] set 函数参数错误')
     }
+};
+WechatShare.prototype.playSound = function (sound,callback) {
+    var self = this;
+    function doCallback() {
+        if(callback){
+            callback(sound.playing())
+        }
+    }
+    
+    if (Device.wechat) {
+        self.sdkReady(function (wx) {
+            wx.ready(function () {
+                sound.play();
+                doCallback()
 
+            })
+        });
+    }else{
+        sound.play();
+        doCallback()
+    }
+   // alert(sound.playing())
 };
 
 
