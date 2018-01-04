@@ -1,15 +1,28 @@
-# Smart
+  ```javascript
+  
+var option = {
+    api: 'http://h5.2smart.cn/wechat/js', //授权链接
+    debug: false,
+    jsApiList: [ ],
+    shareData: {
+        appmessage: {
+            title: "",//好友分享标题
+            desc: "",//好友分享描述
+            img: "",//好友分享图片
+            link: "" //好友分享链接
+        }, timeline: {
+            title: "",//朋友圈分享标题
+            img: "",//朋友圈分享图片
+            link: ""//朋友圈分享链接
+        }
+    }
+};
 
+var share = new WechatShare('http://h5.2smart.cn',option);
+ 
+ share.set('appmessage', 'title', "使用 set 函数重新设置标题");
+ share.set('appmessage', 'link', "http://h5.2smart.cn");
+ share.update()//更新分享内容
 
-
-#Css
-#Methods
-
-| 名称                            |参数                                |说明                           |
-| ------------------------------ | --------------------------------- | -------------------------------- |
-| createCssString(cssString)     |cssString:String                   | 把css字符串写入文档                      |
-| createCssStyle(mark, obj)|mark:String,obj:Object,ext:String  | 用obj创建与mark关联的css对象,并写入文档|
-| createSmartCssStyle(mark, obj, ext)            |mark:String,obj:Object,ext:String  | 用smartobj创建与mark关联的css对象,并写入文档|
-| smartObject(obj,ext)           |obj:Object,ext:String              | 用obj创建css对象,可以使用CssBuilder.css或jquery的 $.css() 添加到dom            |
-| css(el, styles)                |el:String ,styles:Object           | 向el写入css样式,如果属性值非法,则删除|
-| smartCss(el, obj,ext)    |el:String ,obj:Object,ext:String   | 向el写入通过obj创建的css样式|
+```
+ 

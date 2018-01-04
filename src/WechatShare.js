@@ -1,21 +1,29 @@
-var _ = Smart._;
-var Utils = Smart.Utils;
-var Device = Smart.Device;
+var _ = require('underscore')
+var JohnnyUtils = require('johnny-utils')
+JohnnyUtils = JohnnyUtils.default
+var userAgent = navigator.userAgent.toLowerCase();
+var Device = {
+    wechat: RegExp("micromessenger").test(userAgent) ? true : false,
+};
 
 /**
  * 微信分享
  */
-
-function WechatShare(config) {
-    this.config = defaults;
-    this.init(config|{});
+function WechatShare(url, config) {
+    this.config = _.extend(defaults, config || {});
+    console.log(this.config)
+    var self=this;
+    JohnnyUtils.jsonp(this.config.api, {url: url}, function (data) {
+        self.init(data);
+    }, function (err) {
+        console.log(err)
+    })
 }
-
 
 //默认参数
 var defaults = {
-    sdk: '/wechat/?', //授权链接
-    type: 'SDK',// SDK 或者 TXGAME
+    api: '', //授权链接
+    debug: false,
     jsApiList: [
         'checkJsApi',
         'onMenuShareTimeline',
@@ -67,21 +75,12 @@ var defaults = {
 
 };
 
-WechatShare.prototype.jsonUrl = function (SDKURL, shareURL) {
-    if (!SDKURL) {
-        SDKURL = '/wechat/?';
-    }
-    if (!shareURL) {
-        shareURL = encodeURIComponent(location.href.replace(/[\#][\s\S]*/, ''));
-    }
-    return SDKURL + 'url=' + shareURL;
-}
-
 
 WechatShare.prototype.setConfig = function (wx_data) {
     var self = this;
     try {
         window.wx.config({
+            debug: self.config.debug,
             appId: wx_data.appId,
             timestamp: wx_data.timestamp,
             nonceStr: wx_data.nonceStr,
@@ -128,7 +127,7 @@ WechatShare.prototype.update = function () {
 };
 WechatShare.prototype.sdkReady = function (callback) {
     if (!window.wx) {
-        Smart.Utils.getScript('http://res.wx.qq.com/open/js/jweixin-1.0.0.js', function () {
+        JohnnyUtils.getScript('//res.wx.qq.com/open/js/jweixin-1.2.0.js', function () {
             callback(window.wx)
         })
     } else {
@@ -152,14 +151,15 @@ WechatShare.prototype.set = function () {
         console.log('[WechatShare] set 函数参数错误')
     }
 };
-WechatShare.prototype.playSound = function (sound,callback) {
+WechatShare.prototype.playSound = function (sound, callback) {
     var self = this;
+
     function doCallback() {
-        if(callback){
+        if (callback) {
             callback(sound.playing())
         }
     }
-    
+
     if (Device.wechat) {
         self.sdkReady(function (wx) {
             wx.ready(function () {
@@ -168,11 +168,11 @@ WechatShare.prototype.playSound = function (sound,callback) {
 
             })
         });
-    }else{
+    } else {
         sound.play();
         doCallback()
     }
-   // alert(sound.playing())
+    // alert(sound.playing())
 };
 
 
