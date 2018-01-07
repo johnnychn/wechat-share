@@ -2,28 +2,26 @@ var path = require('path')
 var webpack = require('webpack')
 
 module.exports = {
-  entry: './src/WechatShare.js',
+  entry: './src/index.js',
   output: {
     path: path.resolve(__dirname, './dist'),
      publicPath: '/dist/',
-    library: 'WechatShare',
     libraryTarget: 'umd',
     filename: 'wechat-share.js'
   },
-  resolveLoader: {
-    root: path.join(__dirname, 'node_modules'),
-  },
+
   module: {
-    loaders: [
-      {
-        test: /\.vue$/,
-        loader: 'vue'
-      },
-      {
-        test: /\.js$/,
-        loader: 'babel',
-        exclude: /node_modules/
-      },
+    rules: [
+        {
+            test: /\.(js|jsx)$/,
+            exclude: /(node_modules|bower_components)/,
+            use: {
+                loader: 'babel-loader',
+                options: {  // << add options with presets env
+                    presets: ['env']
+                }
+            }
+        },
       {
         test: /\.json$/,
         loader: 'json'
@@ -45,24 +43,26 @@ module.exports = {
   devServer: {
     historyApiFallback: true,
     noInfo: true
-  },
-  devtool: '#eval-source-map'
+  }//,
+  //devtool: '#eval-source-map'
 }
 
 if (process.env.NODE_ENV === 'production') {
-  module.exports.devtool = '#source-map'
+
   // http://vue-loader.vuejs.org/en/workflow/production.html
   module.exports.plugins = (module.exports.plugins || []).concat([
     new webpack.DefinePlugin({
       'process.env': {
         NODE_ENV: '"production"'
       }
-    }), new webpack.IgnorePlugin(/underscore|johnny-utils$/),
+    }),// new webpack.IgnorePlugin(/underscore|johnny-utils$/),
     new webpack.optimize.UglifyJsPlugin({
       compress: {
         warnings: false
       }
     }),
-    new webpack.optimize.OccurenceOrderPlugin()
+    new webpack.optimize.OccurrenceOrderPlugin()
   ])
+}else{
+    module.exports.devtool = '#source-map'
 }

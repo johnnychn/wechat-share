@@ -1,6 +1,5 @@
-var _ = require('underscore')
-var JohnnyUtils = require('johnny-utils')
-JohnnyUtils = JohnnyUtils.default
+import JohnnyUtils from 'johnny-utils'
+
 var userAgent = navigator.userAgent.toLowerCase();
 var Device = {
     wechat: RegExp("micromessenger").test(userAgent) ? true : false,
@@ -10,9 +9,8 @@ var Device = {
  * 微信分享
  */
 function WechatShare(url, config) {
-    this.config = _.extend(defaults, config || {});
-    console.log(this.config)
-    var self=this;
+    this.config = JohnnyUtils.extend(defaults, config || {});
+    var self = this;
     JohnnyUtils.jsonp(this.config.api, {url: url}, function (data) {
         self.init(data);
     }, function (err) {
@@ -145,7 +143,7 @@ WechatShare.prototype.init = function (config) {
 
 WechatShare.prototype.set = function () {
 
-    if (arguments.length === 3 && _.isString(arguments[0]) && _.isString(arguments[1])) {
+    if (arguments.length === 3 && JohnnyUtils.Data.isString(arguments[0]) && JohnnyUtils.Data.isString(arguments[1])) {
         this.config.shareData[arguments[0]][arguments[1]] = arguments[2];
     } else {
         console.log('[WechatShare] set 函数参数错误')
@@ -175,5 +173,4 @@ WechatShare.prototype.playSound = function (sound, callback) {
     // alert(sound.playing())
 };
 
-
-module.exports = WechatShare;
+export default WechatShare
