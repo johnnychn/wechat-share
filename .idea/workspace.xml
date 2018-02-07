@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e99c8dab-94d0-4dfe-9c51-65b360bda6d1" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
-      <change beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
-      <change beforePath="$PROJECT_DIR$/src/WechatShare.js" afterPath="$PROJECT_DIR$/src/WechatShare.js" />
+      <change beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
     </list>
     <ignored path="wechat-share.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -25,11 +22,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="WechatShare.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="WechatShare.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/WechatShare.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="20" column="20" lean-forward="true" selection-start-line="20" selection-start-column="20" selection-end-line="20" selection-end-column="20" />
+            <state relative-caret-position="480">
+              <caret line="32" column="16" lean-forward="true" selection-start-line="32" selection-start-column="16" selection-end-line="32" selection-end-column="16" />
               <folding />
             </state>
           </provider>
@@ -55,18 +52,18 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="README.md" pinned="false" current-in-tab="false">
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="75">
-                <caret line="5" column="19" lean-forward="false" selection-start-line="5" selection-start-column="19" selection-end-line="5" selection-end-column="19" />
+              <first_editor relative-caret-position="150">
+                <caret line="10" column="32" lean-forward="true" selection-start-line="10" selection-start-column="32" selection-end-line="10" selection-end-column="32" />
                 <folding>
-                  <marker date="1515087513823" expanded="true" signature="32:412" ph="{&quot;sdk&quot;: '/wechat/?'...}" />
-                  <marker date="1515087513823" expanded="true" signature="116:119" ph="[...]" />
-                  <marker date="1515087513823" expanded="true" signature="136:410" ph="{...}" />
-                  <marker date="1515087513823" expanded="true" signature="158:289" ph="{&quot;title&quot;: &quot;&quot;...}" />
-                  <marker date="1515087513823" expanded="true" signature="301:404" ph="{&quot;title&quot;: &quot;&quot;...}" />
+                  <marker date="1517978725118" expanded="true" signature="32:421" ph="{&quot;sdk&quot;: '/wechat/?'...}" />
+                  <marker date="1517978725118" expanded="true" signature="117:120" ph="[...]" />
+                  <marker date="1517978725118" expanded="true" signature="137:419" ph="{...}" />
+                  <marker date="1517978725118" expanded="true" signature="159:294" ph="{&quot;title&quot;: &quot;&quot;...}" />
+                  <marker date="1517978725118" expanded="true" signature="306:413" ph="{&quot;title&quot;: &quot;&quot;...}" />
                 </folding>
               </first_editor>
               <second_editor />
@@ -129,13 +126,13 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/src/Smart.js" />
-        <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/.babelrc" />
         <option value="$PROJECT_DIR$/webpack.config.js" />
         <option value="$PROJECT_DIR$/src/index.js" />
         <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/src/WechatShare.js" />
         <option value="$PROJECT_DIR$/package.json" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
@@ -343,12 +340,12 @@
       <workItem from="1517749981384" duration="32000" />
       <workItem from="1517974413372" duration="560000" />
       <workItem from="1517976706343" duration="227000" />
-      <workItem from="1517977287560" duration="1300000" />
+      <workItem from="1517977287560" duration="1370000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="27062000" />
+    <option name="totallyTimeSpent" value="27132000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="896" y="344" width="1440" height="835" extended-state="0" />
@@ -745,23 +742,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="75">
-            <caret line="5" column="19" lean-forward="false" selection-start-line="5" selection-start-column="19" selection-end-line="5" selection-end-column="19" />
-            <folding>
-              <marker date="1515087513823" expanded="true" signature="32:412" ph="{&quot;sdk&quot;: '/wechat/?'...}" />
-              <marker date="1515087513823" expanded="true" signature="116:119" ph="[...]" />
-              <marker date="1515087513823" expanded="true" signature="136:410" ph="{...}" />
-              <marker date="1515087513823" expanded="true" signature="158:289" ph="{&quot;title&quot;: &quot;&quot;...}" />
-              <marker date="1515087513823" expanded="true" signature="301:404" ph="{&quot;title&quot;: &quot;&quot;...}" />
-            </folding>
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
@@ -788,9 +768,26 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/WechatShare.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="20" column="20" lean-forward="true" selection-start-line="20" selection-start-column="20" selection-end-line="20" selection-end-column="20" />
+        <state relative-caret-position="480">
+          <caret line="32" column="16" lean-forward="true" selection-start-line="32" selection-start-column="16" selection-end-line="32" selection-end-column="16" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="150">
+            <caret line="10" column="32" lean-forward="true" selection-start-line="10" selection-start-column="32" selection-end-line="10" selection-end-column="32" />
+            <folding>
+              <marker date="1517978725118" expanded="true" signature="32:421" ph="{&quot;sdk&quot;: '/wechat/?'...}" />
+              <marker date="1517978725118" expanded="true" signature="117:120" ph="[...]" />
+              <marker date="1517978725118" expanded="true" signature="137:419" ph="{...}" />
+              <marker date="1517978725118" expanded="true" signature="159:294" ph="{&quot;title&quot;: &quot;&quot;...}" />
+              <marker date="1517978725118" expanded="true" signature="306:413" ph="{&quot;title&quot;: &quot;&quot;...}" />
+            </folding>
+          </first_editor>
+          <second_editor />
         </state>
       </provider>
     </entry>
