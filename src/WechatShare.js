@@ -11,13 +11,17 @@ var Device = {
 function WechatShare(url, config) {
 
     if(JohnnyUtils.Data.isString(url)===false){
-        this.config = JohnnyUtils.extend(url, config || {});
-         url=window.location.href
+        this.config = JohnnyUtils.extend(defaults, url || {});
+         url=document.location.href
 
     }else{
         this.config = JohnnyUtils.extend(defaults, config || {});
     }
-    url=encodeURIComponent(url.substr(0,url.indexOf('#')))
+    if(url.indexOf('#')>=0){
+        url=encodeURIComponent(url.substr(0,url.indexOf('#')))
+    }else{
+        url=encodeURIComponent(url)
+    }
     var self = this;
     JohnnyUtils.jsonp(this.config.api, {url: url}, function (data) {
         self.init(data);
