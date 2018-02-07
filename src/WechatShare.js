@@ -9,7 +9,15 @@ var Device = {
  * 微信分享
  */
 function WechatShare(url, config) {
-    this.config = JohnnyUtils.extend(defaults, config || {});
+
+    if(JohnnyUtils.Data.isString(url)===false){
+        this.config = JohnnyUtils.extend(url, config || {});
+         url=window.location.href
+
+    }else{
+        this.config = JohnnyUtils.extend(defaults, config || {});
+    }
+    url=encodeURIComponent(url.substr(0,url.indexOf('#')))
     var self = this;
     JohnnyUtils.jsonp(this.config.api, {url: url}, function (data) {
         self.init(data);

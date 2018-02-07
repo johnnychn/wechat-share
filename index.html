@@ -12,8 +12,10 @@
 
 <script>
 
+    var WechatShare=window.SMART.WechatShare
 
-    var share = new WechatShare('http://h5.2smart.cn',{debug:false,api:'http://h5.2smart.cn/wechat/js/'});
+
+    var share = new WechatShare('http://192.168.1.105:8001/?id=100#f=2',{debug:false,api:'http://h5.2smart.cn/wechat/js/'});
 
 
     share.sdkReady(function () {
