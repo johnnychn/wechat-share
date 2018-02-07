@@ -3,7 +3,7 @@
   "description": "WechatShare",
   "author": "johnnyGoo <157781745@qq.com>",
   "main": "dist/wechat-share.js",
-  "version": "1.0.6",
+  "version": "1.0.8",
   "scripts": {
     "dev": "webpack-dev-server --inline --hot --host 0.0.0.0 --port 8001",
     "build": "cross-env NODE_ENV=production webpack --progress --hide-modules"

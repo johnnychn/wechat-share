@@ -76,6 +76,7 @@ var defaults = {
 
 WechatShare.prototype.setConfig = function (wx_data) {
     var self = this;
+    self.authorize=wx_data;
     try {
         window.wx.config({
             debug: self.config.debug,
