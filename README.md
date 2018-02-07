@@ -18,8 +18,8 @@ var option = {
     }
 };
 
-var share = new WechatShare('http://h5.2smart.cn',option);
- // var share = new WechatShare(option);
+// var share = new WechatShare('http://h5.2smart.cn',option);
+ var share = new WechatShare(option);
  share.set('appmessage', 'title', "使用 set 函数重新设置标题");
  share.set('appmessage', 'link', "http://h5.2smart.cn");
  share.update()//更新分享内容
