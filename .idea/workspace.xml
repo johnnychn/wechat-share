@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e99c8dab-94d0-4dfe-9c51-65b360bda6d1" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/dist/wechat-share.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/wechat-share.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/WechatShare.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/WechatShare.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <ignored path="wechat-share.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -261,12 +260,12 @@
       <workItem from="1517983075207" duration="22000" />
       <workItem from="1518062859413" duration="345000" />
       <workItem from="1518063538681" duration="356000" />
-      <workItem from="1559288570643" duration="1397000" />
+      <workItem from="1559288570643" duration="1543000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="30794000" />
+    <option name="totallyTimeSpent" value="30940000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1097" y="97" width="1926" height="1023" extended-state="0" />
