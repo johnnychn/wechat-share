@@ -22,17 +22,22 @@ function WechatShare(url, config) {
     }else{
         url=encodeURIComponent(url)
     }
-    var self = this;
-    JohnnyUtils.jsonp(this.config.api, {url: url}, function (data) {
-        self.init(data);
-    }, function (err) {
-        console.log(err)
-    })
+
+
+    if(this.config.api){
+        var self = this;
+        JohnnyUtils.jsonp(this.config.api, {url: url}, function (data) {
+            self.init(data);
+        }, function (err) {
+            console.log(err)
+        })
+    }
+
 }
 
 //默认参数
 var defaults = {
-    api: '', //授权链接
+    api: false, //授权链接
     debug: false,
     jsApiList: [
         'checkJsApi',
