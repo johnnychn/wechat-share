@@ -22,9 +22,7 @@ function WechatShare(url, config) {
     }else{
         url=encodeURIComponent(url)
     }
-
-
-    if(this.config.api){
+    if(JohnnyUtils.Data.isString(this.config.api)&&this.config.api!=''&&this.config.api!='false'){
         var self = this;
         JohnnyUtils.jsonp(this.config.api, {url: url}, function (data) {
             self.init(data);
